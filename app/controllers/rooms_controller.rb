@@ -5,13 +5,13 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(room: room_params)
+    @room = Room.create(room_params)
     render json: @room
   end
 
   def update
     @room = Room.find(params[:id])
-    @room.update_attributes(room: room_params)
+    @room.update_attributes(room_params)
     render json: @room
   end
 
@@ -27,6 +27,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.permit(:name)
+    params.require(:room).permit(:name)
   end
 end
