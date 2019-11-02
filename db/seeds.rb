@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Room.create([{name: 'seed'}, {name: 'test'}, {name: '初心者'}])
 
-%w(seed test 初心者).each do |room_name|
+%w(room1 room2 room3).each do |room_name|
+  Room.create(name: room_name)
   room = Room.find_by(name: room_name)
   10.times do |i|
     Comment.create(
       room_id: room.id,
-      text: "#{i}番目のコメントです"
+      text: "#{room_name}の#{i}番目のコメントです"
     )
   end
 end
