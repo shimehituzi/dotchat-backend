@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :rooms
+  resources :rooms do
+    resources :comments
+  end
 end
