@@ -1,26 +1,20 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
-    render json: @rooms
+    rooms = Room.all
+    render json: rooms
   end
 
   def create
-    @room = Room.create(room_params)
-    render json: @room
-  end
-
-  def update
-    @room = Room.find(params[:id])
-    @room.update_attributes(room_params)
-    render json: @room
+    room = Room.create(room_params)
+    render json: room
   end
 
   def destroy
-    @room = Room.find(params[:id])
-    if @room.destroy
+    room = Room.find(params[:id])
+    if room.destroy
       head :no_content, status: :ok
     else
-      render json: @room.errors, status: :unprocessable_entity
+      render json: room.errors, status: :unprocessable_entity
     end
   end
 
