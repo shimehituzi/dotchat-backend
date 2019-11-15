@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-%w(room_A room_B room_C room_1 room_2 room_3).each do |room_name|
+%w(部屋 テスト EIC room ROOM へや).each do |room_name|
   Room.create(name: room_name)
   room = Room.find_by(name: room_name)
   10.times do |i|
