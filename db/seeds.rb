@@ -10,9 +10,13 @@
   Room.create(name: room_name)
   room = Room.find_by(name: room_name)
   10.times do |i|
+    string = ""
+    81.times do
+      string << "#{rand(5)}"
+    end
     Comment.create(
       room_id: room.id,
-      text: "#{room_name}の#{i}番目のコメントです"
+      text: string
     )
   end
 end
