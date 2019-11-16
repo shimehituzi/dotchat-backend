@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def index
     if params[:room_id]
       room = Room.find(params[:room_id])
-      comments = room.comments
+      comments = room.comments.order(id: "DESC")
     else
       comments = Comment.all
     end
