@@ -12,7 +12,7 @@
   10.times do |i|
     string = ""
     81.times do
-      string << "#{rand(5)}"
+      string << "#{2 + rand(4)}"
     end
     Comment.create(
       room_id: room.id,
